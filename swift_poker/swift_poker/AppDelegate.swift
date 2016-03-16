@@ -16,14 +16,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
-       cardReader = Card_Creator()
-        cardReader.printFileName()
+        cardReader = Card_Creator()
+        cardReader.printFileContents()
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(aNotification: NSNotification)
+    {
         // Insert code here to tear down your application
     }
-
-
 }
 
