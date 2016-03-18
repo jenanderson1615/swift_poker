@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     {
         cardReader = Card_Creator()
         cardReader.printFileContents()
+        cardReader.createCardArray()
     }
 
     func applicationWillTerminate(aNotification: NSNotification)

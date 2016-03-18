@@ -24,11 +24,10 @@ class Card_Creator
 {
     let fileName = "game_hands.txt"
     var text = ""
+    var cardArray = [Card]()
 
     /**
-      Gets the contents of game hands and sets the text property to the content 
-     
-      TODO: Remove the line to print the text when its no longer needed
+      Gets the contents of game hands and sets the text property to the content
      */
     func printFileContents()
     {
@@ -41,6 +40,36 @@ class Card_Creator
         {
             text = ""
         }
-        print(text)
+    }
+    
+    /**
+     Create a card for each set of values and adds each card to the card array
+     */
+    func createCardArray()
+    {
+        let textArray = text.componentsSeparatedByString(" ")
+        for card in textArray
+        {
+            if(card.componentsSeparatedByString("\n").count > 1)
+            {
+                let subArray = card.componentsSeparatedByString("\n")
+                for subCard in subArray
+                {
+                    let newCardObject: Card!
+                    newCardObject = Card()
+                    newCardObject.rank = (subCard as NSString).substringToIndex(1)
+                    newCardObject.suit = (subCard as NSString).substringFromIndex(1)
+                    cardArray.append(newCardObject)
+                }
+            }
+            else
+            {
+                let newCardObject: Card!
+                newCardObject = Card()
+                newCardObject.rank = (card as NSString).substringToIndex(1)
+                newCardObject.suit = (card as NSString).substringFromIndex(1)
+                cardArray.append(newCardObject)
+            }
+        }
     }
 }
