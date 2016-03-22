@@ -12,13 +12,12 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-    var cardReader: Card_Creator!
+    var pokerGame: Game!
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
-        cardReader = Card_Creator()
-        cardReader.printFileContents()
-        cardReader.createCardArray()
+        pokerGame = Game()
+        pokerGame.createCardArray();
     }
 
     func applicationWillTerminate(aNotification: NSNotification)

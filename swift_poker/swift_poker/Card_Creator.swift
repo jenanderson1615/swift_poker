@@ -24,7 +24,6 @@ class Card_Creator
 {
     let fileName = "game_hands.txt"
     var text = ""
-    var cardArray = [Card]()
 
     /**
       Gets the contents of game hands and sets the text property to the content
@@ -45,9 +44,10 @@ class Card_Creator
     /**
      Create a card for each set of values and adds each card to the card array
      */
-    func createCardArray()
+    func createCards() ->[Card]
     {
         let textArray = text.componentsSeparatedByString(" ")
+        var cardArray = [Card]()
         for card in textArray
         {
             if(card.componentsSeparatedByString("\n").count > 1)
@@ -71,5 +71,6 @@ class Card_Creator
                 cardArray.append(newCardObject)
             }
         }
+        return cardArray
     }
 }

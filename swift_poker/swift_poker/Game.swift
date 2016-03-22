@@ -15,5 +15,24 @@ import Foundation
 */
 class Game
 {
-
+    var cardReader: Card_Creator!
+    var allCards = [Card]()
+    var player1 = [PlayerHand]()
+    var player2 = [PlayerHand]()
+    
+    func createCardArray()
+    {
+        cardReader = Card_Creator()
+        cardReader.printFileContents()
+        allCards = cardReader.createCards()
+    }
+    
+    //Takes the full array of 1000 cards and creates hand arrays
+    //TODO next: make createHands method loop through all cards to create the player 1 
+    //  and player 2 arrays (or dictionary) of hands. First 5 cards a player hand in
+    //  1, second 5 in player 2 and so on
+    func createHands()
+    {
+        
+    }
 }
