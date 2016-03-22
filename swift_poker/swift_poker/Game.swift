@@ -31,6 +31,7 @@ class Game
     //TODO next: make createHands method loop through all cards to create the player 1 
     //  and player 2 arrays (or dictionary) of hands. First 5 cards a player hand in
     //  1, second 5 in player 2 and so on
+    //  If current player hand has a value for card 5, create a new player hand object
     func createHands()
     {
         
