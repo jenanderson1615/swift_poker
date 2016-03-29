@@ -16,5 +16,35 @@ class PlayerHand
 {
     //Needs a hand strength property, enum for strength
     var handCards = [Card]()
+	var cardStrength = 0
+	
+	enum handStrengh
+	{
+		case RoyalFlush
+		case StraighFlush
+		case FourOfAKind
+		case FullHouse
+		case Flush
+		case Straight
+		case ThreeOfAKind
+		case TwoPair
+		case OnePair
+		case HighCard
+	}
+	
+	func setStrength()
+	{
+		
+	}
+	
+	func isSameSuit() -> Bool
+	{
+		return false
+	}
+	
+	func isRoyalFlush() -> Bool
+	{
+		return false
+	}
 }
 

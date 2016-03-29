@@ -12,12 +12,6 @@ import Foundation
 /**
  Uses file i/o to get the cards from game_hands, creates card object for each card, and assigns
  these cards to the correct hands and players
- 
- Todo:
- 
- 1.Figure out loop for which player the card belongs to
- 
- 2.Add unit tests
  */
 
 class Card_Creator
