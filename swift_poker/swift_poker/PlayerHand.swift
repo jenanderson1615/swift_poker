@@ -15,10 +15,6 @@ import Foundation
 class PlayerHand
 {
     //Needs a hand strength property, enum for strength
-    var card1 = Card()
-    var card2 = Card()
-    var card3 = Card()
-    var card4 = Card()
-    var card5 = Card()
+    var handCards = [Card]()
 }
 

@@ -25,15 +25,51 @@ class Game
         cardReader = Card_Creator()
         cardReader.printFileContents()
         allCards = cardReader.createCards()
+        createHands()
     }
     
-    //Takes the full array of 1000 cards and creates hand arrays
-    //TODO next: make createHands method loop through all cards to create the player 1 
-    //  and player 2 arrays (or dictionary) of hands. First 5 cards a player hand in
-    //  1, second 5 in player 2 and so on
-    //  If current player hand has a value for card 5, create a new player hand object
+    /**
+    @brief Takes the full array of cards and creates the player1 and player2 arrays of all the hands
+     */
     func createHands()
     {
+        var count = 0;
+        let handSize = 5;
+        var newPlayer1Hand: PlayerHand!
+        newPlayer1Hand = PlayerHand()
+        var newPlayer2Hand: PlayerHand!
+        newPlayer2Hand = PlayerHand()
         
+        for card in allCards
+        {
+            if(count < handSize)
+            {
+                newPlayer1Hand.handCards.append(card)
+            }
+            else if(count >= handSize)
+            {
+                newPlayer2Hand.handCards.append(card)
+            }
+            
+            if(newPlayer1Hand.handCards.count >= handSize)
+            {
+                player1.append(newPlayer1Hand)
+                newPlayer1Hand = PlayerHand()
+            }
+            else if(newPlayer2Hand.handCards.count >= handSize)
+            {
+                player2.append(newPlayer2Hand)
+                newPlayer2Hand = PlayerHand()
+            }
+            
+            if(count == 9)
+            {
+                count = 0;
+            }
+            else
+            {
+                count += 1;
+            }
+        }
     }
 }
