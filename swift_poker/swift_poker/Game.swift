@@ -72,4 +72,43 @@ class Game
             }
         }
     }
+    
+    func testHand()->PlayerHand
+    {
+        var testHand: PlayerHand!
+        testHand = PlayerHand()
+        
+        var card1:Card!
+        card1 = Card()
+        card1.suit = "H"
+        card1.rank = "J"
+        
+        var card2:Card!
+        card2 = Card()
+        card2.suit = "H"
+        card2.rank = "10"
+        
+        var card3:Card!
+        card3 = Card()
+        card3.suit = "H"
+        card3.rank = "Q"
+        
+        var card4:Card!
+        card4 = Card()
+        card4.suit = "H"
+        card4.rank = "A"
+        
+        var card5:Card!
+        card5 = Card()
+        card5.suit = "H"
+        card5.rank = "9"
+        
+        testHand.handCards.append(card1)
+        testHand.handCards.append(card2)
+        testHand.handCards.append(card3)
+        testHand.handCards.append(card4)
+        testHand.handCards.append(card5)
+        
+        return testHand
+    }
 }

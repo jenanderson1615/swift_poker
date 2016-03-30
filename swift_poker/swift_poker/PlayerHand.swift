@@ -36,15 +36,69 @@ class PlayerHand
 	{
 		
 	}
+    
+    /**
+     @brief Returns an array of all the card suits
+     */
+    func getCardSuits() -> NSArray
+    {
+        var allSuits = [String]()
+        for card in handCards
+        {
+            allSuits.append(card.suit)
+        }
+        return allSuits
+    }
+    
+    /**
+     @brief Returns an array of all the card suits
+     */
+    func getCardRanks() -> NSArray
+    {
+        var allRanks = [String]()
+        for card in handCards
+        {
+            allRanks.append(card.rank)
+        }
+        return allRanks
+    }
 	
+    /**
+     @brief Returns true if all the suits are the same and false they're not all the same
+     */
 	func isSameSuit() -> Bool
 	{
-		return false
+        let allSuits = getCardSuits()
+        
+        if (allSuits[0] as! String != allSuits[1] as! String
+            || allSuits[0] as! String != allSuits[2] as! String
+            || allSuits[0] as! String != allSuits[3] as! String
+            || allSuits[0] as! String != allSuits[4] as! String)
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
 	}
 	
+    /**
+     @brief Returns true if the cards are the same suits and there's an Ace, King, Queen, Jack, and 10 rank and false if hand is not a royal flush
+     */
 	func isRoyalFlush() -> Bool
 	{
-		return false
+        if(!isSameSuit())
+        {
+            return false
+        }
+        let allRanks = getCardRanks()
+        if allRanks.containsObject("A") && allRanks.containsObject("K") && allRanks.containsObject("Q") &&
+            allRanks.containsObject("J") && allRanks.containsObject("10")
+        {
+            return true
+        }
+        return false
 	}
 }
 
