@@ -55,7 +55,7 @@ class PlayerHand
      */
     func getCardRanks() -> NSArray
     {
-        var allRanks = [String]()
+        var allRanks = [Card.rankType]
         for card in handCards
         {
             allRanks.append(card.rank)
