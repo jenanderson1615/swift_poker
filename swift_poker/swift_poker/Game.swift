@@ -91,17 +91,17 @@ class Game
         
         var card3:Card!
         card3 = Card()
-        card3.suit = "H"
-        card3.rank = .Queen
+        card3.suit = "D"
+        card3.rank = .Four
         
         var card4:Card!
         card4 = Card()
-        card4.suit = "H"
-        card4.rank = .Nine
+        card4.suit = "S"
+        card4.rank = .Four
         
         var card5:Card!
         card5 = Card()
-        card5.suit = "H"
+        card5.suit = "C"
         card5.rank = .Two
         
         testHand.handCards.append(card1)

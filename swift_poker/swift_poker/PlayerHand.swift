@@ -101,7 +101,6 @@ class PlayerHand
         return false
 	}
     
-    
     /*
     @brief
     */
@@ -124,6 +123,20 @@ class PlayerHand
         return false
     }
 
+    /*
+    @brief
+    */
+    func isFourOfAKind() -> Bool
+    {
+        let allRanks = getAllCardRankScores()
+        let firstFour = allRanks[0] == allRanks[1] && allRanks[1] == allRanks[2] && allRanks[2] == allRanks[3]
+        let lastFour = allRanks[1] == allRanks[2] && allRanks[2] == allRanks[3] && allRanks[3] == allRanks[4]
+        if  firstFour || lastFour
+        {
+            return true
+        }
+        return false
+    }
     
     /**
      @brief Returns true if the cards are the same suits and there's an Ace, King, Queen, Jack, and 10 rank and false if hand is not a royal flush
