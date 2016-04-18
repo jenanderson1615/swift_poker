@@ -51,7 +51,7 @@ class Card_Creator
                 {
                     let newCardObject: Card!
                     newCardObject = Card()
-                    newCardObject.rank = (subCard as NSString).substringToIndex(1)
+                    newCardObject.setRankWithString((subCard as NSString).substringToIndex(1))
                     newCardObject.suit = (subCard as NSString).substringFromIndex(1)
                     cardArray.append(newCardObject)
                 }
@@ -60,7 +60,7 @@ class Card_Creator
             {
                 let newCardObject: Card!
                 newCardObject = Card()
-                newCardObject.rank = (card as NSString).substringToIndex(1)
+                newCardObject.setRankWithString((card as NSString).substringToIndex(1))
                 newCardObject.suit = (card as NSString).substringFromIndex(1)
                 cardArray.append(newCardObject)
             }

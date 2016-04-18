@@ -26,6 +26,7 @@ class Game
         cardReader.printFileContents()
         allCards = cardReader.createCards()
         createHands()
+        print(player1[1].getHighestRank())
     }
     
     /**
@@ -81,7 +82,7 @@ class Game
         var card1:Card!
         card1 = Card()
         card1.suit = "H"
-        card1.rank = .Jack
+        card1.rank = .Four
         
         var card2:Card!
         card2 = Card()
@@ -96,12 +97,12 @@ class Game
         var card4:Card!
         card4 = Card()
         card4.suit = "H"
-        card4.rank = .Ace
+        card4.rank = .Nine
         
         var card5:Card!
         card5 = Card()
         card5.suit = "H"
-        card5.rank = .Nine
+        card5.rank = .Two
         
         testHand.handCards.append(card1)
         testHand.handCards.append(card2)

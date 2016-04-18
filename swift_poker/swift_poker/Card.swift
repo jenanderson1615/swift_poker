@@ -13,7 +13,7 @@ class Card
     var rank = rankType.Two
     var suit = ""
 	
-	enum rankType: Character
+	enum rankType: NSString
 	{
 		case Ace = "A"
 		case King = "K"
@@ -66,7 +66,44 @@ class Card
 			case .Two:
 				returnScore = 2
 		}
-		
 		return returnScore
 	}
+    
+    /**
+     @brief
+     */
+    func setRankWithString(rankString: NSString)
+    {
+        switch rankString
+        {
+            case "A":
+                rank = .Ace
+            case "K":
+                rank = .King
+            case "Q":
+                rank = .Queen
+            case "J":
+                rank = .Jack
+            case "T":
+                rank = .Ten
+            case "9":
+                rank = .Nine
+            case "8":
+                rank = .Eight
+            case "7":
+                rank = .Seven
+            case "6":
+                rank = .Six
+            case "5":
+                rank = .Five
+            case "4":
+                rank = .Four
+            case "3":
+                rank = .Three
+            case "2":
+                rank = .Two
+            default:
+                rank = .Two
+        }
+    }
 }

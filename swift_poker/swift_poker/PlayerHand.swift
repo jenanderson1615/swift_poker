@@ -51,16 +51,16 @@ class PlayerHand
     }
     
     /**
-     @brief Returns an array of all the card suits
+     Returns an array of all the card rank values
      */
-    func getCardRanks() -> NSArray
+    func getAllCardRankScores() -> Array<Int>
     {
-        var allRanks = [Card.rankType]
+        var allRanks = [NSInteger]()
         for card in handCards
         {
-            allRanks.append(card.rank)
+            allRanks.append(card.rankScore())
         }
-        return allRanks
+        return allRanks.sort()
     }
 	
     /**
@@ -92,13 +92,46 @@ class PlayerHand
         {
             return false
         }
-        let allRanks = getCardRanks()
-        if allRanks.containsObject("A") && allRanks.containsObject("K") && allRanks.containsObject("Q") &&
-            allRanks.containsObject("J") && allRanks.containsObject("10")
+        let allRanks = getAllCardRankScores()
+        if allRanks[4] == 14 && allRanks[3] == 13 && allRanks[2] == 12 &&
+           allRanks[1] == 11 && allRanks[0] == 10
         {
             return true
         }
         return false
 	}
+    
+    
+    /*
+    @brief
+    */
+    func isStraightFlush() -> Bool
+    {
+        if(!isSameSuit())
+        {
+            return false
+        }
+        let allRanks = getAllCardRankScores()
+        let compare1 = allRanks[4] == allRanks[3] + 1
+        let compare2 = allRanks[3] == allRanks[2] + 1
+        let compare3 = allRanks[2] == allRanks[1] + 1
+        let compare4 = allRanks[1] == allRanks[0] + 1
+        
+        if  compare1 && compare2 && compare3 && compare4
+        {
+            return true
+        }
+        return false
+    }
+
+    
+    /**
+     @brief Returns true if the cards are the same suits and there's an Ace, King, Queen, Jack, and 10 rank and false if hand is not a royal flush
+     */
+    func getHighestRank() -> NSInteger
+    {
+        let allRanks = getAllCardRankScores()
+        return allRanks[4]
+    }
 }
 
