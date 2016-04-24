@@ -51,7 +51,7 @@ class PlayerHand
     }
     
     /**
-     Returns an array of all the card rank values
+     Returns a sorted array of all the card rank values
      */
     func getAllCardRankScores() -> Array<Int>
     {
@@ -136,6 +136,31 @@ class PlayerHand
             return true
         }
         return false
+    }
+    
+    /*
+    @brief Returns true if there's 3 of one rank and 2 of another
+    */
+    func isFullHouse() -> Bool
+    {
+        let allRanks = getAllCardRankScores()
+        
+        //Check for first match
+        let firstTwoMatch = allRanks[0] == allRanks[1]
+        let firstThreeMatch = firstTwoMatch && allRanks[1] == allRanks[2]
+        if !firstTwoMatch && !firstThreeMatch
+        {
+            return false
+        }
+        
+        let lastTwoMatch = allRanks[4] == allRanks[3]
+        let lastThreeMatch = lastTwoMatch && allRanks[2] == allRanks[3]
+        if !lastTwoMatch && !lastThreeMatch
+        {
+            return false
+        }
+
+        return true
     }
     
     /**
