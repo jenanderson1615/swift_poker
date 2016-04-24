@@ -163,6 +163,92 @@ class PlayerHand
         return true
     }
     
+    /*
+    @brief Returns true all the suits are the same.  Assumes not a straight flush because its already 
+        been checked.  Method mostly taken care of by isSameSuit, but this helps me make sure straight
+        flush is being checked for
+    */
+    func isFlush() -> Bool
+    {
+        if(!isSameSuit())
+        {
+            return false
+        }
+        return true
+    }
+    
+    /*
+    @brief
+    */
+    func isThreeOfAKind() -> Bool
+    {
+        let allRanks = getAllCardRankScores()
+        let firstThree = allRanks[0] == allRanks[1] && allRanks[1] == allRanks[2]
+        let middleThree = allRanks[1] == allRanks[2] && allRanks[2] == allRanks[3]
+        let lastThree = allRanks[2] == allRanks[3] && allRanks[3] == allRanks[4]
+        if  firstThree || middleThree || lastThree
+        {
+            return true
+        }
+        return false
+    }
+    
+    /*
+    @brief
+    */
+    func isTwoPair() -> Bool
+    {
+        let allRanks = getAllCardRankScores()
+        var firstPairPosition = -1
+        
+        if allRanks[0] == allRanks[1]
+        {
+            firstPairPosition = 0
+        }
+        else if allRanks[1] == allRanks[2]
+        {
+            firstPairPosition = 1
+        }
+        else if allRanks[2] == allRanks[3]
+        {
+            firstPairPosition = 2
+        }
+        else if allRanks[3] == allRanks[4]
+        {
+            firstPairPosition = 3
+        }
+        
+        if firstPairPosition == -1
+        {
+            return false
+        }
+        
+        //We have one pair at this point starting at allRanks[firstPairPosition] & allRanks[firstPairPosition + 1].  Can assume not the same pair otherwise card strength would be 4 pair
+        var newArray = allRanks
+        newArray.removeAtIndex(firstPairPosition + 1)
+        newArray.removeAtIndex(firstPairPosition)
+        
+        if newArray[0] == newArray[1] || newArray[1] == newArray[2]
+        {
+            return true
+        }
+        return false
+    }
+    
+    /*
+    @brief
+    */
+    func isOnePair() -> Bool
+    {
+        let allRanks = getAllCardRankScores()
+        
+        if allRanks[0] == allRanks[1] || allRanks[1] == allRanks[2] || allRanks[2] == allRanks[3] || allRanks[3] == allRanks[4]
+        {
+            return true
+        }
+        return false
+    }
+    
     /**
      @brief Returns true if the cards are the same suits and there's an Ace, King, Queen, Jack, and 10 rank and false if hand is not a royal flush
      */

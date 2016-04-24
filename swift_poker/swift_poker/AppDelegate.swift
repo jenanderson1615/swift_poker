@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     {
         pokerGame = Game()
      //   pokerGame.createCardArray();
-        print(pokerGame.testHand().isFullHouse())
+        print(pokerGame.testHand().isOnePair())
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
