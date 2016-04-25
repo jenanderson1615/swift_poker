@@ -16,25 +16,65 @@ class PlayerHand
 {
     //Needs a hand strength property, enum for strength
     var handCards = [Card]()
-	var cardStrength = 0
+	var handStrength = HandStrenghType.HighCard
 	
-	enum handStrengh
+    enum HandStrenghType: NSInteger
 	{
-		case RoyalFlush
-		case StraighFlush
-		case FourOfAKind
-		case FullHouse
-		case Flush
-		case Straight
-		case ThreeOfAKind
-		case TwoPair
-		case OnePair
-		case HighCard
+        case RoyalFlush = 0
+		case StraightFlush = 1
+		case FourOfAKind = 2
+		case FullHouse = 3
+		case Flush = 4
+		case Straight = 5
+		case ThreeOfAKind = 6
+		case TwoPair = 7
+		case OnePair = 8
+		case HighCard = 9
 	}
 	
-	func setStrength()
+	func getStrength()->HandStrenghType
 	{
-		
+		if isRoyalFlush()
+        {
+            handStrength = HandStrenghType.RoyalFlush
+        }
+        else if isStraightFlush()
+        {
+            handStrength = HandStrenghType.StraighFlush
+        }
+        else if isFourOfAKind()
+        {
+            handStrength = HandStrenghType.FourOfAKind
+        }
+        else if isFullHouse()
+        {
+            handStrength = HandStrenghType.FullHouse
+        }
+        else if isFlush()
+        {
+            handStrength = HandStrenghType.Flush
+        }
+        else if isStraightFlush()
+        {
+            handStrength = HandStrenghType.StraighFlush
+        }
+        else if isThreeOfAKind()
+        {
+            handStrength = HandStrenghType.ThreeOfAKind
+        }
+        else if isTwoPair()
+        {
+            handStrength = HandStrenghType.TwoPair
+        }
+        else if isOnePair()
+        {
+            handStrength = HandStrenghType.OnePair
+        }
+        else
+        {
+            handStrength = HandStrenghType.HighCard
+        }
+        return handStrength
 	}
     
     /**
