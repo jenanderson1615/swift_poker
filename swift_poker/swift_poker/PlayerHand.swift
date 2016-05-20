@@ -40,7 +40,7 @@ class PlayerHand
         }
         else if isStraightFlush()
         {
-            handStrength = HandStrenghType.StraighFlush
+            handStrength = HandStrenghType.StraightFlush
         }
         else if isFourOfAKind()
         {
@@ -56,7 +56,7 @@ class PlayerHand
         }
         else if isStraightFlush()
         {
-            handStrength = HandStrenghType.StraighFlush
+            handStrength = HandStrenghType.StraightFlush
         }
         else if isThreeOfAKind()
         {

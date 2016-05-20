@@ -20,13 +20,15 @@ class Game
     var player1 = [PlayerHand]()
     var player2 = [PlayerHand]()
     
+    /**
+     @brief Calls methods to read from game_hands.txt and create the player arrays
+     */
     func createCardArray()
     {
         cardReader = Card_Creator()
         cardReader.printFileContents()
         allCards = cardReader.createCards()
         createHands()
-        print(player1[1].getHighestRank())
     }
     
     /**
@@ -74,6 +76,9 @@ class Game
         }
     }
     
+    /**
+     This is for testing the hand strength methods
+     */
     func testHand()->PlayerHand
     {
         var testHand: PlayerHand!

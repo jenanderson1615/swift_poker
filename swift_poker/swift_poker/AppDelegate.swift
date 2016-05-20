@@ -17,8 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
         pokerGame = Game()
-     //   pokerGame.createCardArray();
-        print(pokerGame.testHand().getStrength())
+        pokerGame.createCardArray();
+//        print(pokerGame.testHand().getStrength())
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
