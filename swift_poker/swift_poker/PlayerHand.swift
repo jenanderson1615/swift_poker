@@ -16,63 +16,63 @@ class PlayerHand
 {
     //Needs a hand strength property, enum for strength
     var handCards = [Card]()
-	var handStrength = HandStrenghType.HighCard
+	var handStrength = HandStrenghType.HighCard.rawValue
 	
     enum HandStrenghType: NSInteger
 	{
-        case RoyalFlush = 0
-		case StraightFlush = 1
-		case FourOfAKind = 2
-		case FullHouse = 3
-		case Flush = 4
-		case Straight = 5
-		case ThreeOfAKind = 6
-		case TwoPair = 7
-		case OnePair = 8
-		case HighCard = 9
+		case HighCard = 0
+		case OnePair = 1
+		case TwoPair = 2
+		case ThreeOfAKind = 3
+		case Straight = 4
+		case Flush = 5
+		case FullHouse = 6
+		case FourOfAKind = 7
+		case StraightFlush = 8
+		case RoyalFlush = 9
 	}
 	
-	func getStrength()->HandStrenghType
+	func getStrength()->NSInteger
 	{
 		if isRoyalFlush()
         {
-            handStrength = HandStrenghType.RoyalFlush
+            handStrength = HandStrenghType.RoyalFlush.rawValue
         }
         else if isStraightFlush()
         {
-            handStrength = HandStrenghType.StraightFlush
+            handStrength = HandStrenghType.StraightFlush.rawValue
         }
         else if isFourOfAKind()
         {
-            handStrength = HandStrenghType.FourOfAKind
+            handStrength = HandStrenghType.FourOfAKind.rawValue
         }
         else if isFullHouse()
         {
-            handStrength = HandStrenghType.FullHouse
+            handStrength = HandStrenghType.FullHouse.rawValue
         }
         else if isFlush()
         {
-            handStrength = HandStrenghType.Flush
+            handStrength = HandStrenghType.Flush.rawValue
         }
         else if isStraightFlush()
         {
-            handStrength = HandStrenghType.StraightFlush
+            handStrength = HandStrenghType.StraightFlush.rawValue
         }
         else if isThreeOfAKind()
         {
-            handStrength = HandStrenghType.ThreeOfAKind
+            handStrength = HandStrenghType.ThreeOfAKind.rawValue
         }
         else if isTwoPair()
         {
-            handStrength = HandStrenghType.TwoPair
+            handStrength = HandStrenghType.TwoPair.rawValue
         }
         else if isOnePair()
         {
-            handStrength = HandStrenghType.OnePair
+            handStrength = HandStrenghType.OnePair.rawValue
         }
         else
         {
-            handStrength = HandStrenghType.HighCard
+            handStrength = HandStrenghType.HighCard.rawValue
         }
         return handStrength
 	}
@@ -275,9 +275,6 @@ class PlayerHand
         return false
     }
     
-    /*
-    @brief
-    */
     func isOnePair() -> Bool
     {
         let allRanks = getAllCardRankScores()
@@ -288,10 +285,7 @@ class PlayerHand
         }
         return false
     }
-    
-    /**
-     @brief Returns true if the cards are the same suits and there's an Ace, King, Queen, Jack, and 10 rank and false if hand is not a royal flush
-     */
+	
     func getHighestRank() -> NSInteger
     {
         let allRanks = getAllCardRankScores()

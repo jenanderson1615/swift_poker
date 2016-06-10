@@ -75,11 +75,28 @@ class Game
             }
         }
     }
-    
+	
+	/**
+	@brief Takes 2 player hands and returns which player hand has a higher strength
+	TODO: Handle comparing highest cards if the strength is highest card
+	TODO: Add test for equal strength - non highest card hands
+	*/
+	func compareHands(player1: PlayerHand, player2: PlayerHand) -> NSInteger
+	{
+		if(player1.getStrength() > player2.getStrength())
+		{
+			return 1;
+		}
+		else if(player2.getStrength() > player1.getStrength())
+		{
+			return 2;
+		}
+	}
+
     /**
      This is for testing the hand strength methods
      */
-    func testHand()->PlayerHand
+    func testHand1()->PlayerHand
     {
         var testHand: PlayerHand!
         testHand = PlayerHand()
@@ -92,7 +109,7 @@ class Game
         var card2:Card!
         card2 = Card()
         card2.suit = "H"
-        card2.rank = .Six
+        card2.rank = .Eight
         
         var card3:Card!
         card3 = Card()
@@ -117,4 +134,46 @@ class Game
         
         return testHand
     }
+	
+	/**
+	This is for testing the hand strength methods
+	*/
+	func testHand2()->PlayerHand
+	{
+		var testHand: PlayerHand!
+		testHand = PlayerHand()
+		
+		var card1:Card!
+		card1 = Card()
+		card1.suit = "H"
+		card1.rank = .Three
+		
+		var card2:Card!
+		card2 = Card()
+		card2.suit = "H"
+		card2.rank = .Six
+		
+		var card3:Card!
+		card3 = Card()
+		card3.suit = "H"
+		card3.rank = .Four
+		
+		var card4:Card!
+		card4 = Card()
+		card4.suit = "H"
+		card4.rank = .Five
+		
+		var card5:Card!
+		card5 = Card()
+		card5.suit = "H"
+		card5.rank = .Two
+		
+		testHand.handCards.append(card1)
+		testHand.handCards.append(card2)
+		testHand.handCards.append(card3)
+		testHand.handCards.append(card4)
+		testHand.handCards.append(card5)
+		
+		return testHand
+	}
 }

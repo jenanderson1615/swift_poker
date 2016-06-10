@@ -18,7 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     {
         pokerGame = Game()
         pokerGame.createCardArray();
-//        print(pokerGame.testHand().getStrength())
+        let player1Hand = pokerGame.testHand1()
+		let player2Hand = pokerGame.testHand2()
+		print(pokerGame.compareHands(player1Hand, player2: player2Hand))
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
