@@ -17,6 +17,7 @@ class PlayerHand
     //Needs a hand strength property, enum for strength
     var handCards = [Card]()
 	var handStrength = HandStrenghType.HighCard.rawValue
+	var firstPairPosition = -1
 	
     enum HandStrenghType: NSInteger
 	{
@@ -239,7 +240,7 @@ class PlayerHand
     func isTwoPair() -> Bool
     {
         let allRanks = getAllCardRankScores()
-        var firstPairPosition = -1
+		firstPairPosition = -1
         
         if allRanks[0] == allRanks[1]
         {
@@ -278,11 +279,20 @@ class PlayerHand
     func isOnePair() -> Bool
     {
         let allRanks = getAllCardRankScores()
-        
-        if allRanks[0] == allRanks[1] || allRanks[1] == allRanks[2] || allRanks[2] == allRanks[3] || allRanks[3] == allRanks[4]
-        {
-            return true
-        }
+		firstPairPosition = 0
+		var comparisonRankPosition = 1
+		
+		while(comparisonRankPosition < allRanks.count)
+		{
+			if(allRanks[firstPairPosition] == allRanks[comparisonRankPosition])
+			{
+				return true
+			}
+			
+			firstPairPosition += 1
+			comparisonRankPosition += 1
+		}
+
         return false
     }
 	

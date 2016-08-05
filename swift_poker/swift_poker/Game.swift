@@ -81,21 +81,21 @@ class Game
 	
 	/**
 	@brief Takes 2 player hands and returns which player hand has a higher strength
-	TODO: Need to handle comparison between highest card winners and one pair winners.
+	TODO: Need to handle comparison between one pairs.
 	*/
 	func compareHands(player1: PlayerHand, player2: PlayerHand) -> NSInteger
 	{
 		if(player1.getStrength() > player2.getStrength())
 		{
-			return 1;
+			return 1
 		}
 		else if(player2.getStrength() > player1.getStrength())
 		{
-			return 2;
+			return 2
 		}
         else if(player1.handStrength == 1 && player2.handStrength == 1)
         {
-			return 0;
+			return onePairWinner(player1, player2: player2)
         }
 		else if(player1.handStrength == 0 && player2.handStrength == 0)
 		{
@@ -104,6 +104,32 @@ class Game
 		else
 		{
 			NSLog("there was a hand strength not equal to 1 or 0")
+			return 0;
+		}
+	}
+	
+	/**
+	@brief Gets the winner if the strength for both players is highest card
+	TODO: there's hands with equal pairs.  need to compare the other card ranks
+	*/
+	func onePairWinner(player1: PlayerHand, player2: PlayerHand) -> NSInteger
+	{
+		let player1Ranks = player1.getAllCardRankScores()
+		let player2Ranks = player2.getAllCardRankScores()
+		let player1PairRank = player1Ranks[player1.firstPairPosition]
+		let player2PairRank = player2Ranks[player2.firstPairPosition]
+		
+		if(player1PairRank > player2PairRank)
+		{
+			return 1;
+		}
+		else if(player2PairRank > player1PairRank)
+		{
+			return 2;
+		}
+		else
+		{
+			NSLog("one pair card strength and there was no highest rank")
 			return 0;
 		}
 	}
