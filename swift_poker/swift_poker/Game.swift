@@ -110,7 +110,6 @@ class Game
 	
 	/**
 	@brief Gets the winner if the strength for both players is highest card
-	TODO: there's hands with equal pairs.  need to compare the other card ranks
 	*/
 	func onePairWinner(player1: PlayerHand, player2: PlayerHand) -> NSInteger
 	{
@@ -129,8 +128,7 @@ class Game
 		}
 		else
 		{
-			NSLog("one pair card strength and there was no highest rank")
-			return 0;
+			return highestCardWinner(player1, player2: player2)
 		}
 	}
 	
