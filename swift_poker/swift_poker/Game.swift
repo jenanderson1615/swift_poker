@@ -93,12 +93,39 @@ class Game
 		{
 			return 2;
 		}
-        else
+        else if(player1.handStrength == 1 && player2.handStrength == 1)
         {
-			NSLog("player 1 hand strength: %ld", player1.handStrength)
-			NSLog("player 2 hand strength: %ld", player2.handStrength)
 			return 0;
         }
+		else if(player1.handStrength == 0 && player2.handStrength == 0)
+		{
+			return highestCardWinner(player1, player2: player2)
+		}
+		else
+		{
+			NSLog("there was a hand strength not equal to 1 or 0")
+			return 0;
+		}
+	}
+	
+	/**
+	@brief Gets the winner if the strength for both players is highest card
+	*/
+	func highestCardWinner(player1: PlayerHand, player2: PlayerHand) -> NSInteger
+	{
+		if(player1.getHighestRank() > player2.getHighestRank())
+		{
+			return 1;
+		}
+		else if(player2.getHighestRank() > player1.getHighestRank())
+		{
+			return 2;
+		}
+		else
+		{
+			NSLog("highest card strength and there was no highest rank")
+			return 0;
+		}
 	}
 
     /**
