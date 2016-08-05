@@ -19,6 +19,9 @@ class Game
     var allCards = [Card]()
     var player1 = [PlayerHand]()
     var player2 = [PlayerHand]()
+	
+	var player1Score = 0
+	var player2Score = 0
     
     /**
      @brief Calls methods to read from game_hands.txt and create the player arrays
@@ -78,8 +81,7 @@ class Game
 	
 	/**
 	@brief Takes 2 player hands and returns which player hand has a higher strength
-	TODO: Handle comparing highest cards if the strength is highest card
-	TODO: Add test for equal strength - non highest card hands
+	TODO: Need to handle comparison between highest card winners and one pair winners.
 	*/
 	func compareHands(player1: PlayerHand, player2: PlayerHand) -> NSInteger
 	{
@@ -93,7 +95,9 @@ class Game
 		}
         else
         {
-            return 0;
+			NSLog("player 1 hand strength: %ld", player1.handStrength)
+			NSLog("player 2 hand strength: %ld", player2.handStrength)
+			return 0;
         }
 	}
 
