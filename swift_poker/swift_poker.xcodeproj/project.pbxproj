@@ -15,6 +15,7 @@
 		0F33D30B1C9B8B53007E498E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F33D30A1C9B8B53007E498E /* Card.swift */; };
 		0F33D30D1C9B8EDC007E498E /* PlayerHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F33D30C1C9B8EDC007E498E /* PlayerHand.swift */; };
 		0F33D30F1C9B9489007E498E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F33D30E1C9B9489007E498E /* Game.swift */; };
+		383E9EED1D553183004DF43F /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = 383E9EEC1D553183004DF43F /* TODO.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0F33D30A1C9B8B53007E498E /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0F33D30C1C9B8EDC007E498E /* PlayerHand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHand.swift; sourceTree = "<group>"; };
 		0F33D30E1C9B9489007E498E /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		383E9EEC1D553183004DF43F /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				0F33D3021C8CC3D8007E498E /* MainMenu.xib */,
 				0F33D2F11C8CB8F4007E498E /* Assets.xcassets */,
 				0F33D2F61C8CB8F4007E498E /* Info.plist */,
+				383E9EEC1D553183004DF43F /* TODO.txt */,
 			);
 			path = swift_poker;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383E9EED1D553183004DF43F /* TODO.txt in Resources */,
 				0F33D2F21C8CB8F4007E498E /* Assets.xcassets in Resources */,
 				0F33D2FF1C8CBAC1007E498E /* game_hands.txt in Resources */,
 				0F33D3031C8CC3D8007E498E /* MainMenu.xib in Resources */,
@@ -278,6 +282,7 @@
 				0F33D2FB1C8CB8F4007E498E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
