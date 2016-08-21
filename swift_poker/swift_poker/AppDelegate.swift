@@ -13,15 +13,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
     var pokerGame: Game!
+    var resultView: Results!
 	let useTextFileCards = true
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
         pokerGame = Game()
+        resultView =  Results(nibName: "Results", bundle:NSBundle.mainBundle())
+        self.window.contentView?.addSubview(resultView.view)
+    
         pokerGame.createCardArray();
 		if(useTextFileCards)
 		{
-			decideWinner()
+			pokerGame.decideWinner()
 		}
 		//uses test hands
 		else
@@ -32,27 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
     }
 	
-	func decideWinner()
-	{
-		var handNumber = 0
-		for playerHand1 in pokerGame.player1
-		{
-			let playerHand2 = pokerGame.player2[handNumber]
-			let winner = pokerGame.compareHands(playerHand1, player2: playerHand2)
-			if (winner == 1)
-			{
-				pokerGame.player1Score += 1;
-			}
-			else if(winner == 2)
-			{
-				pokerGame.player2Score += 1;
-			}
-			handNumber += 1
-		}
-		NSLog("player 1 score: %ld", pokerGame.player1Score)
-		NSLog("player 2 score: %ld", pokerGame.player2Score)
-	}
-
+	
     func applicationWillTerminate(aNotification: NSNotification)
     {
         // Insert code here to tear down your application

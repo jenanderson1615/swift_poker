@@ -151,6 +151,27 @@ class Game
 			return 0;
 		}
 	}
+    
+    func decideWinner()
+    {
+        var handNumber = 0
+        for playerHand1 in player1
+        {
+            let playerHand2 = player2[handNumber]
+            let winner = compareHands(playerHand1, player2: playerHand2)
+            if (winner == 1)
+            {
+                player1Score += 1;
+            }
+            else if(winner == 2)
+            {
+                player2Score += 1;
+            }
+            handNumber += 1
+        }
+        NSLog("player 1 score: %ld", player1Score)
+        NSLog("player 2 score: %ld", player2Score)
+    }
 
     /**
      This is for testing the hand strength methods
