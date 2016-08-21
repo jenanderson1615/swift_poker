@@ -22,6 +22,8 @@ class Game
 	
 	var player1Score = 0
 	var player2Score = 0
+    var totalGames = 0
+    var winnerScore = 0
     
     /**
      @brief Calls methods to read from game_hands.txt and create the player arrays
@@ -85,6 +87,7 @@ class Game
 	*/
 	func compareHands(player1: PlayerHand, player2: PlayerHand) -> NSInteger
 	{
+        totalGames += 1
 		if(player1.getStrength() > player2.getStrength())
 		{
 			return 1
@@ -152,7 +155,7 @@ class Game
 		}
 	}
     
-    func decideWinner()
+    func calculateHandsWon()
     {
         var handNumber = 0
         for playerHand1 in player1
@@ -169,91 +172,19 @@ class Game
             }
             handNumber += 1
         }
-        NSLog("player 1 score: %ld", player1Score)
-        NSLog("player 2 score: %ld", player2Score)
     }
-
-    /**
-     This is for testing the hand strength methods
-     */
-    func testHand1()->PlayerHand
+    
+    func calculateWinner() -> NSString
     {
-        var testHand: PlayerHand!
-        testHand = PlayerHand()
-        
-        var card1:Card!
-        card1 = Card()
-        card1.suit = "H"
-        card1.rank = .Three
-        
-        var card2:Card!
-        card2 = Card()
-        card2.suit = "H"
-        card2.rank = .Eight
-        
-        var card3:Card!
-        card3 = Card()
-        card3.suit = "H"
-        card3.rank = .Four
-        
-        var card4:Card!
-        card4 = Card()
-        card4.suit = "H"
-        card4.rank = .Five
-        
-        var card5:Card!
-        card5 = Card()
-        card5.suit = "H"
-        card5.rank = .Two
-        
-        testHand.handCards.append(card1)
-        testHand.handCards.append(card2)
-        testHand.handCards.append(card3)
-        testHand.handCards.append(card4)
-        testHand.handCards.append(card5)
-        
-        return testHand
+        if(player1Score > player2Score)
+        {
+            winnerScore = player1Score
+            return "Player 1"
+        }
+        else
+        {
+            winnerScore = player2Score
+            return "Player 2"
+        }
     }
-	
-	/**
-	This is for testing the hand strength methods
-	*/
-	func testHand2()->PlayerHand
-	{
-		var testHand: PlayerHand!
-		testHand = PlayerHand()
-		
-		var card1:Card!
-		card1 = Card()
-		card1.suit = "H"
-		card1.rank = .Three
-		
-		var card2:Card!
-		card2 = Card()
-		card2.suit = "H"
-		card2.rank = .Six
-		
-		var card3:Card!
-		card3 = Card()
-		card3.suit = "H"
-		card3.rank = .Four
-		
-		var card4:Card!
-		card4 = Card()
-		card4.suit = "H"
-		card4.rank = .Five
-		
-		var card5:Card!
-		card5 = Card()
-		card5.suit = "H"
-		card5.rank = .Two
-		
-		testHand.handCards.append(card1)
-		testHand.handCards.append(card2)
-		testHand.handCards.append(card3)
-		testHand.handCards.append(card4)
-		testHand.handCards.append(card5)
-		
-		return testHand
-	}
 }

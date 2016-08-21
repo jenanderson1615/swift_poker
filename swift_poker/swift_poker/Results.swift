@@ -15,10 +15,17 @@ class Results: NSViewController {
     @IBOutlet weak var numGamesWon: NSTextField!
     @IBOutlet weak var totalGames: NSTextField!
     
+    var pokerGame: Game!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-       
+        pokerGame = Game()
+        pokerGame.createCardArray();
+        pokerGame.calculateHandsWon()
+        totalGames.stringValue = "\(pokerGame.totalGames)"
+        winnerName.stringValue = pokerGame.calculateWinner() as String
+        numGamesWon.stringValue =  "\(pokerGame.winnerScore)"
     }
     
 }

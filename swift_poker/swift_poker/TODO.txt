@@ -1,5 +1,5 @@
 TO DO
-	hook up UI
+X	hook up UI
 	make some unit tests
 	make card file into a framework
 	create randomizer - make framework to which takes in # of hands to create and # of cards in a hand
