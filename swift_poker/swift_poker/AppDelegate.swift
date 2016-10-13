@@ -14,13 +14,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var window: NSWindow!
     var resultView: Results!
 
-    func applicationDidFinishLaunching(aNotification: NSNotification)
+    func applicationDidFinishLaunching(_ aNotification: Notification)
     {
-        resultView =  Results(nibName: "Results", bundle:NSBundle.mainBundle())
+        resultView =  Results(nibName: "Results", bundle:Bundle.main)
         self.window.contentView?.addSubview(resultView.view)
     }
 	
-    func applicationWillTerminate(aNotification: NSNotification)
+    func applicationWillTerminate(_ aNotification: Notification)
     {
         // Insert code here to tear down your application
     }

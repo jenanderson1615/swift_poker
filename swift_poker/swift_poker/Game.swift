@@ -85,7 +85,7 @@ class Game
 	@brief Takes 2 player hands and returns which player hand has a higher strength
 	TODO: Need to handle comparison between one pairs.
 	*/
-	func compareHands(player1: PlayerHand, player2: PlayerHand) -> NSInteger
+	func compareHands(_ player1: PlayerHand, player2: PlayerHand) -> NSInteger
 	{
         totalGames += 1
 		if(player1.getStrength() > player2.getStrength())
@@ -114,7 +114,7 @@ class Game
 	/**
 	@brief Gets the winner if the strength for both players is highest card
 	*/
-	func onePairWinner(player1: PlayerHand, player2: PlayerHand) -> NSInteger
+	func onePairWinner(_ player1: PlayerHand, player2: PlayerHand) -> NSInteger
 	{
 		let player1Ranks = player1.getAllCardRankScores()
 		let player2Ranks = player2.getAllCardRankScores()
@@ -138,7 +138,7 @@ class Game
 	/**
 	@brief Gets the winner if the strength for both players is highest card
 	*/
-	func highestCardWinner(player1: PlayerHand, player2: PlayerHand) -> NSInteger
+	func highestCardWinner(_ player1: PlayerHand, player2: PlayerHand) -> NSInteger
 	{
 		if(player1.getHighestRank() > player2.getHighestRank())
 		{

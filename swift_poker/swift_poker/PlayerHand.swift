@@ -16,64 +16,64 @@ class PlayerHand
 {
     //Needs a hand strength property, enum for strength
     var handCards = [Card]()
-	var handStrength = HandStrenghType.HighCard.rawValue
+	var handStrength = HandStrenghType.highCard.rawValue
 	var firstPairPosition = -1
 	
     enum HandStrenghType: NSInteger
 	{
-		case HighCard = 0
-		case OnePair = 1
-		case TwoPair = 2
-		case ThreeOfAKind = 3
-		case Straight = 4
-		case Flush = 5
-		case FullHouse = 6
-		case FourOfAKind = 7
-		case StraightFlush = 8
-		case RoyalFlush = 9
+		case highCard = 0
+		case onePair = 1
+		case twoPair = 2
+		case threeOfAKind = 3
+		case straight = 4
+		case flush = 5
+		case fullHouse = 6
+		case fourOfAKind = 7
+		case straightFlush = 8
+		case royalFlush = 9
 	}
 	
 	func getStrength()->NSInteger
 	{
 		if isRoyalFlush()
         {
-            handStrength = HandStrenghType.RoyalFlush.rawValue
+            handStrength = HandStrenghType.royalFlush.rawValue
         }
         else if isStraightFlush()
         {
-            handStrength = HandStrenghType.StraightFlush.rawValue
+            handStrength = HandStrenghType.straightFlush.rawValue
         }
         else if isFourOfAKind()
         {
-            handStrength = HandStrenghType.FourOfAKind.rawValue
+            handStrength = HandStrenghType.fourOfAKind.rawValue
         }
         else if isFullHouse()
         {
-            handStrength = HandStrenghType.FullHouse.rawValue
+            handStrength = HandStrenghType.fullHouse.rawValue
         }
         else if isFlush()
         {
-            handStrength = HandStrenghType.Flush.rawValue
+            handStrength = HandStrenghType.flush.rawValue
         }
         else if isStraightFlush()
         {
-            handStrength = HandStrenghType.StraightFlush.rawValue
+            handStrength = HandStrenghType.straightFlush.rawValue
         }
         else if isThreeOfAKind()
         {
-            handStrength = HandStrenghType.ThreeOfAKind.rawValue
+            handStrength = HandStrenghType.threeOfAKind.rawValue
         }
         else if isTwoPair()
         {
-            handStrength = HandStrenghType.TwoPair.rawValue
+            handStrength = HandStrenghType.twoPair.rawValue
         }
         else if isOnePair()
         {
-            handStrength = HandStrenghType.OnePair.rawValue
+            handStrength = HandStrenghType.onePair.rawValue
         }
         else
         {
-            handStrength = HandStrenghType.HighCard.rawValue
+            handStrength = HandStrenghType.highCard.rawValue
         }
         return handStrength
 	}
@@ -88,7 +88,7 @@ class PlayerHand
         {
             allSuits.append(card.suit)
         }
-        return allSuits
+        return allSuits as NSArray
     }
     
     /**
@@ -101,7 +101,7 @@ class PlayerHand
         {
             allRanks.append(card.rankScore())
         }
-        return allRanks.sort()
+        return allRanks.sorted()
     }
 	
     /**
@@ -266,8 +266,8 @@ class PlayerHand
         
         //We have one pair at this point starting at allRanks[firstPairPosition] & allRanks[firstPairPosition + 1].  Can assume not the same pair otherwise card strength would be 4 pair
         var newArray = allRanks
-        newArray.removeAtIndex(firstPairPosition + 1)
-        newArray.removeAtIndex(firstPairPosition)
+        newArray.remove(at: firstPairPosition + 1)
+        newArray.remove(at: firstPairPosition)
         
         if newArray[0] == newArray[1] || newArray[1] == newArray[2]
         {

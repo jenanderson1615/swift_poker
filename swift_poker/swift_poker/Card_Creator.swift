@@ -24,10 +24,10 @@ class Card_Creator
      */
     func printFileContents()
     {
-        let urlpath = NSBundle.mainBundle().pathForResource("game_hands", ofType: "txt")
+        let urlpath = Bundle.main.path(forResource: "game_hands", ofType: "txt")
         do
         {
-            text = try String(contentsOfFile: urlpath!, encoding: NSUTF8StringEncoding)
+            text = try String(contentsOfFile: urlpath!, encoding: String.Encoding.utf8)
         }
         catch
         {
@@ -40,19 +40,19 @@ class Card_Creator
      */
     func createCards() ->[Card]
     {
-        let textArray = text.componentsSeparatedByString(" ")
+        let textArray = text.components(separatedBy: " ")
         var cardArray = [Card]()
         for card in textArray
         {
-            if(card.componentsSeparatedByString("\n").count > 1)
+            if(card.components(separatedBy: "\n").count > 1)
             {
-                let subArray = card.componentsSeparatedByString("\n")
+                let subArray = card.components(separatedBy: "\n")
                 for subCard in subArray
                 {
                     let newCardObject: Card!
                     newCardObject = Card()
-                    newCardObject.setRankWithString((subCard as NSString).substringToIndex(1))
-                    newCardObject.suit = (subCard as NSString).substringFromIndex(1)
+                    newCardObject.setRankWithString((subCard as NSString).substring(to: 1) as NSString)
+                    newCardObject.suit = (subCard as NSString).substring(from: 1)
                     cardArray.append(newCardObject)
                 }
             }
@@ -60,8 +60,8 @@ class Card_Creator
             {
                 let newCardObject: Card!
                 newCardObject = Card()
-                newCardObject.setRankWithString((card as NSString).substringToIndex(1))
-                newCardObject.suit = (card as NSString).substringFromIndex(1)
+                newCardObject.setRankWithString((card as NSString).substring(to: 1) as NSString)
+                newCardObject.suit = (card as NSString).substring(from: 1)
                 cardArray.append(newCardObject)
             }
         }

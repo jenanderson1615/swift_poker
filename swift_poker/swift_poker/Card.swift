@@ -10,24 +10,24 @@ import Foundation
 
 class Card
 {
-    var rank = rankType.Two
+    var rank = rankType.two
     var suit = ""
 	
 	enum rankType: NSString
 	{
-		case Ace = "A"
-		case King = "K"
-		case Queen = "Q"
-		case Jack = "J"
-		case Ten = "T"
-		case Nine = "9"
-		case Eight = "8"
-		case Seven = "7"
-		case Six = "6"
-		case Five = "5"
-		case Four = "4"
-		case Three = "3"
-		case Two = "2"
+		case ace = "A"
+		case king = "K"
+		case queen = "Q"
+		case jack = "J"
+		case ten = "T"
+		case nine = "9"
+		case eight = "8"
+		case seven = "7"
+		case six = "6"
+		case five = "5"
+		case four = "4"
+		case three = "3"
+		case two = "2"
 	}
 	
 	/**
@@ -39,31 +39,31 @@ class Card
 		
 		switch self.rank
 		{
-			case .Ace:
+			case .ace:
 				returnScore = 14
-			case .King:
+			case .king:
 				returnScore = 13
-			case .Queen:
+			case .queen:
 				returnScore = 12
-			case .Jack:
+			case .jack:
 				returnScore = 11
-			case .Ten:
+			case .ten:
 				returnScore = 10
-			case .Nine:
+			case .nine:
 				returnScore = 9
-			case .Eight:
+			case .eight:
 				returnScore = 8
-			case .Seven:
+			case .seven:
 				returnScore = 7
-			case .Six:
+			case .six:
 				returnScore = 6
-			case .Five:
+			case .five:
 				returnScore = 5
-			case .Four:
+			case .four:
 				returnScore = 4
-			case .Three:
+			case .three:
 				returnScore = 3
-			case .Two:
+			case .two:
 				returnScore = 2
 		}
 		return returnScore
@@ -72,38 +72,38 @@ class Card
     /**
      @brief
      */
-    func setRankWithString(rankString: NSString)
+    func setRankWithString(_ rankString: NSString)
     {
         switch rankString
         {
             case "A":
-                rank = .Ace
+                rank = .ace
             case "K":
-                rank = .King
+                rank = .king
             case "Q":
-                rank = .Queen
+                rank = .queen
             case "J":
-                rank = .Jack
+                rank = .jack
             case "T":
-                rank = .Ten
+                rank = .ten
             case "9":
-                rank = .Nine
+                rank = .nine
             case "8":
-                rank = .Eight
+                rank = .eight
             case "7":
-                rank = .Seven
+                rank = .seven
             case "6":
-                rank = .Six
+                rank = .six
             case "5":
-                rank = .Five
+                rank = .five
             case "4":
-                rank = .Four
+                rank = .four
             case "3":
-                rank = .Three
+                rank = .three
             case "2":
-                rank = .Two
+                rank = .two
             default:
-                rank = .Two
+                rank = .two
         }
     }
 }
