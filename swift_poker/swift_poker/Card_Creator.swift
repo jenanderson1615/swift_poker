@@ -34,11 +34,11 @@ class Card_Creator
             text = ""
         }
     }
-    
+        
     /**
      Create a card for each set of values and adds each card to the card array
      */
-    func createCards() ->[Card]
+    func createCardArray() ->[Card]
     {
         let textArray = text.components(separatedBy: " ")
         var cardArray = [Card]()
@@ -51,7 +51,7 @@ class Card_Creator
                 {
                     let newCardObject: Card!
                     newCardObject = Card()
-                    newCardObject.setRankWithString((subCard as NSString).substring(to: 1) as NSString)
+                    newCardObject.rank = ((subCard as NSString).substring(to: 1) as NSString) as String
                     newCardObject.suit = (subCard as NSString).substring(from: 1)
                     cardArray.append(newCardObject)
                 }
@@ -60,7 +60,7 @@ class Card_Creator
             {
                 let newCardObject: Card!
                 newCardObject = Card()
-                newCardObject.setRankWithString((card as NSString).substring(to: 1) as NSString)
+                newCardObject.rank = ((card as NSString).substring(to: 1) as NSString) as String
                 newCardObject.suit = (card as NSString).substring(from: 1)
                 cardArray.append(newCardObject)
             }

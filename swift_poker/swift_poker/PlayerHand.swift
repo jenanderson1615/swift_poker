@@ -8,6 +8,12 @@
 
 import Foundation
 
+struct Card
+{
+    var rank = ""
+    var suit = ""
+}
+
 /**
  Stores an array of 5 cards as a property and determines the hand strength.  If the strength
     is highest card, the game can call the highest card method to compare highest cards.
@@ -99,7 +105,38 @@ class PlayerHand
         var allRanks = [NSInteger]()
         for card in handCards
         {
-            allRanks.append(card.rankScore())
+            switch card.rank
+            {
+            case "A":
+                allRanks.append(14)
+            case "K":
+                allRanks.append(13)
+            case "Q":
+                allRanks.append(12)
+            case "J":
+                allRanks.append(11)
+            case "T":
+                allRanks.append(10)
+            case "9":
+                allRanks.append(9)
+            case "8":
+                allRanks.append(8)
+            case "7":
+                allRanks.append(7)
+            case "6":
+                allRanks.append(6)
+            case "5":
+                allRanks.append(5)
+            case "4":
+                allRanks.append(4)
+            case "3":
+                allRanks.append(3)
+            case "2":
+                allRanks.append(2)
+            default:
+                break
+            }
+
         }
         return allRanks.sorted()
     }

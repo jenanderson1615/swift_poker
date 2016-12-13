@@ -16,7 +16,7 @@ import Foundation
 class Game
 {
     var cardReader: Card_Creator!
-    var allCards = [Card]()
+    var allCardsStructs = [Card]()
     var player1 = [PlayerHand]()
     var player2 = [PlayerHand]()
 	
@@ -32,7 +32,7 @@ class Game
     {
         cardReader = Card_Creator()
         cardReader.printFileContents()
-        allCards = cardReader.createCards()
+        allCardsStructs = cardReader.createCardArray()
         createHands()
     }
     
@@ -48,7 +48,7 @@ class Game
         var newPlayer2Hand: PlayerHand!
         newPlayer2Hand = PlayerHand()
         
-        for card in allCards
+        for card in allCardsStructs
         {
             if(count < handSize)
             {
